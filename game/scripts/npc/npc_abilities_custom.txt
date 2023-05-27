@@ -1,2 +1,2 @@
-#base "npc_abilities_799.txt"
+#base "drow_ranger_abilities.txt"
 

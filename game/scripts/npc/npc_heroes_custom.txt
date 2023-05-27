@@ -1,7 +1,71 @@
 "DOTAHeroes"
 {
-	"npc_dota_hero_drow_ranger_old"
 	{
 		"Model"		"models/heroes/drow/drow_base.vmdl"
+		"IdleExpression"		"scenes/drowranger/drowranger_exp_idle_01.vcd"
+
+		"Ability1"		"drow_ranger_frost_arrows"
+		"Ability2"		"drow_ranger_wave_of_silence"
+		"Ability3"		"drow_ranger_multishot"
+		"Ability4"		"drow_ranger_glacier"
+		"Ability5"		"generic_hidden"
+		"Ability6"		"drow_ranger_marksmanship"
+		"Ability10"		"special_bonus_unique_drow_ranger_gust_selfmovespeed"
+		"Ability11"		"special_bonus_unique_drow_ranger_2"
+		"Ability12"		"special_bonus_unique_drow_ranger_gust_invis"
+		"Ability13"		"special_bonus_unique_drow_ranger_6"
+		"Ability14"		"special_bonus_unique_drow_ranger_1"
+		"Ability15"		"special_bonus_unique_drow_ranger_7"
+		"Ability16"		"special_bonus_unique_drow_ranger_3"
+		"Ability17"		"special_bonus_unique_drow_ranger_8"
+
+		"AttributeBaseStrength"			"16"
+		"AttributeBaseIntelligence"		"15"
+		"AttributeBaseAgility"			"20"
+		"AttributeStrengthGain"			"1.900000"
+		"AttributeIntelligenceGain"		"1.400000"
+		"AttributeAgilityGain"			"2.900000"
+
+		"ArmorPhysical"					"0"
+		"AttackCapabilities"			"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"				"29"
+		"AttackDamageMax"				"36"
+		"AttackRate"					"1.700000"
+		"BaseAttackSpeed"				"100"
+		"AttackAnimationPoint"			"0.5"
+		"AttackAcquisitionRange"		"800"
+		"AttackRange"					"625"
+		"ProjectileModel"				"particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+		"ProjectileSpeed"				"1250"
+		"AttributePrimary"				"DOTA_ATTRIBUTE_AGILITY"
+		"StatusHealthRegen"				"0.25"
+		"VisionDaytimeRange"			"1800"
+		"MovementSpeed"					"300"
+		"MovementTurnRate"				"0.7000"
+		"HasAggressiveStance"			"0"
+		"BoundsHullName"		"DOTA_HULL_SIZE_HERO"
+		"particle_folder"		"particles/units/heroes/hero_drow"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+		"VoiceFile"		"soundevents/voscripts/game_sounds_vo_drowranger.vsndevts"
+		"RenderablePortrait"
+		{
+			"Particles"
+			{
+				"particles/units/heroes/hero_drow/drow_loadout.vpcf"		"loadout"
+			}
+		}
+		"HasAggressiveStance"		"1"
+		"AttackSpeedActivityModifiers"
+		{
+			"fast"		"150"
+			"faster"	"190"
+			"fastest"	"220"
+			"superfast"	"300"
+			"megafast"	"420"
+		}
+		"MovementSpeedActivityModifiers"
+		{
+			"sprint"		"430"
+		}
 	}
 }

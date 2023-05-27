@@ -2,9 +2,9 @@ ErrorTracking = ErrorTracking or {}
 ErrorTracking.collected_errors = ErrorTracking.collected_errors or {}
 
 if not IsInToolsMode() then
-	debug.old_traceback = debug.old_traceback or debug.traceback
+	debug.oldTraceback = debug.oldTraceback or debug.traceback
 	debug.traceback = function(...)
-		local stack = debug.old_traceback(...)
+		local stack = debug.oldTraceback(...)
 		ErrorTracking.Collect(stack)
 
 		for player_id = 0, 23 do
@@ -36,8 +36,6 @@ function ErrorTracking.Try(callback, ...)
 	return xpcall(callback, handleTryError, ...)
 end
 
---[[
--- TODO: uncomment when webapi and error collection is available
 Timers:CreateTimer({
 	useGameTime = false,
 	callback = function()
@@ -51,4 +49,3 @@ Timers:CreateTimer({
 		return 60
 	end
 })
-]]
