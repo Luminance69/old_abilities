@@ -1,0 +1,2 @@
+#base "npc_abilities_799.txt"
+
