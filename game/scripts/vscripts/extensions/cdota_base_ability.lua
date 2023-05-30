@@ -50,7 +50,7 @@ function CDOTABaseAbility:SetRemovalTimer()
 	self.removal_timer = Timers:CreateTimer(1, function()
 		if self and not self:IsNull() and self.removal_timer then
 			if self:NumModifiersUsingAbility() ~= 0 or self:IsChanneling() then return 1 end
-			self:ClearModifiers(true)
+			self:ClearModifiers()
 			self.removal_timer = nil
 			self:RemoveSelf()
 		end

@@ -19,8 +19,15 @@ function GameMode:Init()
 	game_mode_entity:SetUseDefaultDOTARuneSpawnLogic(true)
 	game_mode_entity:SetDaynightCycleDisabled(true)
 	game_mode_entity:SetBotThinkingEnabled(false)
+	game_mode_entity:SetAnnouncerDisabled(true)
+	game_mode_entity:SetAnnouncerGameModeAnnounceDisabled(true)
+	game_mode_entity:SetAnnouncerGameModeAnnounceDisabled(true)
 	GameRules:SetTimeOfDay(0.5)
 	GameRules:SetPreGameTime(90)
+	GameRules:SetHeroSelectionTime(0)
+	GameRules:SetHeroSelectPenaltyTime(0)
+	GameRules:SetStrategyTime(0)
+	GameRules:SetShowcaseTime(0)
 	GameRules:SetCreepSpawningEnabled(false)
 
 	GameRules:SetUseUniversalShopMode(false)
@@ -31,10 +38,19 @@ function GameMode:Init()
 
 	_G.GameModeEntity = game_mode_entity
 
+	-- Register events
+	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(GameMode, "OnGameRulesStateChange"), self)
+
 	ChatCommands:Init()
 	Scenario:Init()
 end
 
 function GameMode:HideUI(hide)
 	CustomGameEventManager:Send_ServerToAllClients("hide_ui", {hide = hide})
+end
+
+function GameMode:OnGameRulesStateChange()
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		PlayerResource:GetPlayer(0):SetSelectedHero("npc_dota_hero_drow_ranger")
+	end
 end

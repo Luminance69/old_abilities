@@ -8,7 +8,7 @@ Scenario["drow"] = {
 
 		GameMode:HideUI(true)
 
-		local hero = PlayerResource:ReplaceHeroWithNoTransfer(0, "npc_dota_hero_drow_ranger", 0, 0)
+		local hero = PlayerResource:GetSelectedHeroEntity(0)
 		FindClearSpaceForUnit(hero, ORIGIN, true)
 		hero:Hold()
 		PlayerResource:SetCameraTarget(0, hero)
@@ -25,17 +25,18 @@ Scenario["drow"] = {
 		hero:SetHealth(540)
 		hero:SetMana(255)
 
-		local actor = CreateUnitByName("npc_dota_hero_axe", ORIGIN + Vector(800, 0, 0), true, nil, nil, 3)
-		actor:Hold()
+		local actor2 = CreateUnitByName("npc_dota_hero_axe", ORIGIN + Vector(800, 0, 0), true, nil, nil, 3)
+		actor2:Hold()
 
 		local loop = function(tick)
-			if tick == 300 then
-				hero:MoveToTargetToAttack(actor)
+			if tick == 150 then
+				hero:Interrupt()
+				hero:MoveToTargetToAttack(actor2)
 			end
 		end
 
 		local end_loop = function()
-			UTIL_Remove(actor)
+			UTIL_Remove(actor2)
 		end
 
 		return loop, end_loop
@@ -47,7 +48,7 @@ Scenario["drow"] = {
 
 		GameMode:HideUI(true)
 
-		local hero = PlayerResource:ReplaceHeroWithNoTransfer(0, "npc_dota_hero_drow_ranger", 0, 0)
+		local hero = PlayerResource:GetSelectedHeroEntity(0)
 		FindClearSpaceForUnit(hero, ORIGIN, true)
 		hero:Hold()
 		PlayerResource:SetCameraTarget(0, hero)
@@ -78,7 +79,7 @@ Scenario["drow"] = {
 		actor5:Hold()
 
 		local loop = function(tick)
-			if tick == 300 then
+			if tick == 150 then
 				hero:SetNightTimeVisionRange(1700)
 			end
 		end
@@ -100,13 +101,13 @@ Scenario["drow"] = {
 
 		GameMode:HideUI(true)
 
-		local hero = PlayerResource:ReplaceHeroWithNoTransfer(0, "npc_dota_hero_drow_ranger", 0, 0)
+		local hero = PlayerResource:GetSelectedHeroEntity(0)
 		FindClearSpaceForUnit(hero, ORIGIN, true)
 		hero:Hold()
 		PlayerResource:SetCameraTarget(0, hero)
 		local frost_arrows = hero:GetAbilityByIndex(0)
 
-		frost_arrows:SetLevel(1)
+		frost_arrows:SetLevel(4)
 		frost_arrows:ToggleAutoCast()
 
 		-- Hero stats as of 6.70
@@ -126,16 +127,25 @@ Scenario["drow"] = {
 		actor:SetControllableByPlayer(0, true)
 
 		local loop = function(tick)
-			if tick == 280 then
-				-- VALVE PLS WHY DOESNT THIS WORK
-				actor:MoveToPosition(ORIGIN + Vector(250, -250, 0))
+			if tick == 130 then
+				actor:Interrupt()
+				actor:MoveToPosition(ORIGIN + Vector(350, -350, 0))
 			end
-			if tick == 300 then
+			if tick == 150 then
+				hero:Interrupt()
 				hero:MoveToTargetToAttack(actor)
-				actor:MoveToPosition(ORIGIN + Vector(250, 250, 0))
 			end
-			if tick == 330 then
-				actor:MoveToPosition(ORIGIN + Vector(-250, 250, 0))
+			if tick == 170 then
+				actor:MoveToPosition(ORIGIN + Vector(350, 350, 0))
+			end
+			if tick == 210 then
+				actor:MoveToPosition(ORIGIN + Vector(-350, 350, 0))
+			end
+			if tick == 250 then
+				actor:MoveToPosition(ORIGIN + Vector(350, 350, 0))
+			end
+			if tick == 290 then
+				actor:MoveToPosition(ORIGIN + Vector(350, -350, 0))
 			end
 		end
 
