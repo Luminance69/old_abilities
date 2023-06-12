@@ -1,4 +1,156 @@
 "DOTAAbilities"
 {
-	""
+	// AOE % bonus dmg to allied units
+	"drow_ranger_trueshot_custom_1"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/trueshot_1"
+		"AbilityTextureName"	"drow_ranger_trueshot"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityCastRange"		"900"
+
+		"AbilityValues"
+		{
+			"bonus_damage"		"7 14 21 28"
+			"radius"			"900"
+		}
+	}
+	// % of drows agility as bonus damage to all allied ranged heroes on map, toggle to apply to all allied ranged units on map
+	"drow_ranger_trueshot_custom_2"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/trueshot_2"
+		"AbilityTextureName"	"drow_ranger_trueshot"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+
+		"AbilityValues"
+		{
+			"agility_as_damage"		"10 20 30 40"
+		}
+	}
+	// % of drows agility as bonus damage to all allied ranged heroes on map, and allied ranged units in 900 radius
+	"drow_ranger_trueshot_custom_3"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/trueshot_3"
+		"AbilityTextureName"	"drow_ranger_trueshot"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+
+		"AbilityValues"
+		{
+			"agility_as_damage"		"10 20 30 40"
+		}
+	}
+	// % of drows agility as bonus attack speed to all allied ranged heroes on map, and allied ranged units in 900 radius
+	"drow_ranger_trueshot_custom_4"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/trueshot_4"
+		"AbilityTextureName"	"drow_ranger_trueshot"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+
+		"AbilityValues"
+		{
+			"agility_as_attack_speed"	"10 20 30 40"
+		}
+	}
+	// bonus agility poggers wow so strong
+	"drow_ranger_marksmanship_custom_1"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/marksmanship_1"
+		"AbilityTextureName"	"drow_ranger_marksmanship"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"AbilityValues"
+		{
+			"bonus_agility"			"15 30 45"
+		}
+	}
+	// 1 but gives more when no nearby enemy
+	"drow_ranger_marksmanship_custom_2"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/marksmanship_2"
+		"AbilityTextureName"	"drow_ranger_marksmanship"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"AbilityValues"
+		{
+			"bonus_agility"			"20 30 40"
+			"search_radius"			"375"
+			"agility_multiplier"	"2"
+		}
+	}
+	// Identical to 2 but scepter grants attack splinter
+	"drow_ranger_marksmanship_custom_3"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/marksmanship_3"
+		"AbilityTextureName"	"drow_ranger_marksmanship"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"AbilityValues"
+		{
+			"bonus_agility"			"20 30 40"
+			"search_radius"			"375"
+			"agility_multiplier"	"2"
+
+			"scepter_split_damage"	"50"
+			"scepter_split_radius"	"375"
+		}
+	}
+	// Piercing chance, insta kills creeps, still splinters
+	// proc particle particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf
+	"drow_ranger_marksmanship_custom_4"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/marksmanship_4"
+		"AbilityTextureName"	"drow_ranger_marksmanship"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"AbilityValues"
+		{
+			"proc_chance" 			"20 30 40"
+			"search_radius"			"400"
+
+			"scepter_split_damage"	"50"
+			"scepter_split_radius"	"375"
+		}
+	}
+	// Identical to 4, but doesnt one shot ancients
+	"drow_ranger_marksmanship_custom_5"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/drow/marksmanship_5"
+		"AbilityTextureName"	"drow_ranger_marksmanship"
+
+		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"AbilityValues"
+		{
+			"proc_chance" 			"20 30 40"
+			"search_radius"			"400"
+
+			"scepter_split_damage"	"50"
+			"scepter_split_radius"	"375"
+		}
+	}
 }

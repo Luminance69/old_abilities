@@ -6,8 +6,13 @@ function Scenario:Init()
 end
 
 function Scenario:RunScenario(hero, id)
+	if self.end_func then
+		self.end_func()
+	end
+
 	local loop_func, end_loop = Scenario[hero][tonumber(id)]()
 	self.loop = loop_func
+	self.end_func = end_loop
 
 	local tick = 0
 
@@ -16,8 +21,6 @@ function Scenario:RunScenario(hero, id)
 			loop_func(tick)
 			tick = tick + 1
 			return FrameTime()
-		else
-			end_loop()
 		end
 	end)
 end
